@@ -1,0 +1,23 @@
+<nav class="re-m-18 re-mx-18 office_navbar">
+    <ul>
+        <li {% if activeMenu == 'client_add' %} class="office_active_menu" {% endif %}>
+        	<a href="{% url 'client_add' ' ' %}">Add Client</a>
+        </li>
+        
+        <li {% if activeMenu == 'client_all' %} class="office_active_menu" {% endif %}>
+        	<a href="{% url 'client_all' ' ' %}">All Clients</a>
+        </li>
+        
+        <li {% if activeMenu == 'client_transaction_add' %} class="office_active_menu" {% endif %}>
+        	<a href="{% url 'client_transaction_add' ' ' %}">Add Transaction</a>
+        </li>
+        
+        <li {% if activeMenu == 'client_transaction_all' %} class="office_active_menu" {% endif %}>
+        	<a href="{% url 'client_transaction_all' ' ' %}">All Transactions</a>
+        </li>
+    </ul>
+
+    <ul id="of_right_btn">
+        <li class="right"><a href=""><i class="fa fa-arrow-circle-down"></i></a></li>
+    </ul>
+</nav>

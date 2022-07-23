@@ -1,0 +1,103 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "backend_includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "backend_includes/menubar.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "backend_includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="content-wrapper">
+        <div class="col-md-12">&nbsp;</div>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="col-md-9">
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Edit Income</h3>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="set-{{confirm.2}}">
+                                {% if confirm.2 %}<b class="btn-cross">×</b>{% endif %}
+                                <h4>{{confirm.0}}</h4>
+                                <div class="set-{{confirm.2}}">
+                                    {% if confirm.2 %}<h6>{{confirm.1}}</h6>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Income Field</label>
+                                    <div class="col-sm-8">
+                                        <select type="text" name="field_id" class="form-control select2">
+                                            <option value="" selected disabled> Select Field Of Income </option>
+                                            {% for f in fieldData %}
+                                                <option {% if additionalIncomeData.field_id.field_id == f.field_id %} selected {% endif %} value="{{ f.field_id }}">{{ f.title }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Amount</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" step="any" name="amount" value="{{ additionalIncomeData.amount }}" class="form-control" placeholder="0.00">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Description</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" name="description" rows="3" value="{{ additionalIncomeData.description }}" class="form-control">{{ additionalIncomeData.description }}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Earn By</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="earn_by" value="{{ additionalIncomeData.earn_by }}" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Status</label>
+                                    <div class="col-sm-8">
+                                        <select name="status" class="form-control select2" style="width: 100%;">
+                                            <option value="" disabled>Select</option>
+                                            <option {% if additionalIncomeData.status == 'active' %} selected {% endif %} value="active">Active</option>
+                                            <option {% if additionalIncomeData.status == 'inactive' %} selected {% endif %} value="inactive">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <input type="submit" name="additional_income_update" value="Update" class="btn btn-info">
+                                <button type="reset" class="btn btn-default float-right">Discard</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Control sidebar content goes here -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- /.control-sidebar -->
+    </aside>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "backend_includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->

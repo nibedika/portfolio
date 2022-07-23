@@ -1,0 +1,166 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "backend_includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "backend_includes/menubar.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "backend_includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="content-wrapper">
+        <div class="col-md-12">&nbsp;</div>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="col-md-9">
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Website Setting</h3>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="set-{{confirm.2}}">
+                                {% if confirm.2 %}<b class="btn-cross">×</b>{% endif %}
+                                <h4>{{confirm.0}}</h4>
+                                <div class="set-{{confirm.2}}">
+                                    {% if confirm.2 %}<h6>{{confirm.1}}</h6>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="card-body">
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Slider One</label>
+                                    <div class="col-sm-8">
+                                        <img width="100%" src="/media/account-img/website/slider-img1/{{ websiteData.slider_img1 }}" alt="" align="middle">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Change Slider One</label>
+                                    <div class="col-sm-8">
+                                        <div class="col-sm-12">
+                                            <input type="file" name="slider_img1" class="custom-file-input" id="exampleInputFile1">
+                                            <label class="custom-file-label" for="exampleInputFile1">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Slider One Caption</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" name="slider_txt1" value="{{ websiteData.slider_txt1 }}" rows="5" class="form-control" placeholder="">{{ websiteData.slider_txt1 }}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Slider Two</label>
+                                    <div class="col-sm-8">
+                                        <img width="100%" src="/media/account-img/website/slider-img2/{{ websiteData.slider_img2 }}" alt="" align="middle">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Change Slider Two</label>
+                                    <div class="col-sm-8">
+                                        <div class="col-sm-12">
+                                            <input type="file" name="slider_img2" class="custom-file-input" id="exampleInputFile2">
+                                            <label class="custom-file-label" for="exampleInputFile2">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Slider Two Caption</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" name="slider_txt2" value="{{ websiteData.slider_txt2 }}" rows="5" class="form-control" placeholder="">{{ websiteData.slider_txt2 }}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Slider Three</label>
+                                    <div class="col-sm-8">
+                                        <img width="100%" src="/media/account-img/website/slider-img3/{{ websiteData.slider_img3 }}" alt="" align="middle">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Change Slider Three</label>
+                                    <div class="col-sm-8">
+                                        <div class="col-sm-12">
+                                            <input type="file" name="slider_img3" class="custom-file-input" id="exampleInputFile3">
+                                            <label class="custom-file-label" for="exampleInputFile3">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Slider Three Caption</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" name="slider_txt3" value="{{ websiteData.slider_txt3 }}" rows="5" class="form-control" placeholder="">{{ websiteData.slider_txt3 }}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">About Image</label>
+                                    <div class="col-sm-8">
+                                        <img width="100%" src="/media/account-img/website/about-img/{{ websiteData.about_img }}" alt="" align="middle">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Change About Image</label>
+                                    <div class="col-sm-8">
+                                        <div class="col-sm-12">
+                                            <input type="file" name="about_img" class="custom-file-input" id="exampleInputFile4">
+                                            <label class="custom-file-label" for="exampleInputFile4">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">About Text</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" name="about_txt" value="{{ websiteData.about_txt }}" rows="5" class="form-control" placeholder="">{{ websiteData.about_txt }}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">CV Document</label>
+                                    <div class="col-sm-8">
+                                        <div class="col-sm-12">
+                                            <input type="file" name="cv_file" class="custom-file-input" id="exampleInputFile4">
+                                            <label class="custom-file-label" for="exampleInputFile4">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <input type="submit" name="update" value="Update" class="btn btn-info">
+                                <button type="reset" class="btn btn-default float-right">Discard</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Control sidebar content goes here -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- /.control-sidebar -->
+    </aside>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "backend_includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ==========

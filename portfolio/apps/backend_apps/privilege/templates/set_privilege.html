@@ -1,0 +1,172 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "backend_includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "backend_includes/menubar.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "backend_includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="content-wrapper">
+        <div class="col-md-12">&nbsp;</div>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Set Privilege For<b style="color: #444;"> ( {{ userData.name }} - {{ userData.email }} ) </b></h3>
+                        </div>
+
+                        <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered table-striped">
+
+                                    <thead>
+                                        <tr>
+                                            <th width="40">Position</th>
+                                            <th>Comonent</th>
+                                            <th>View</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for i in userPrivilegeData %}
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="position[]" value="{{ i.position }}" style="width: 80px;">
+                                            </td>
+                                            
+                                            <td>
+                                                <input type="checkbox" class="component" 
+                                                {% if i.status == 'active' %} checked {% endif %} 
+                                                value="True"> &nbsp; 
+
+                                                <input type="hidden" name="module[]" {% if i.status == 'active' %} value="True" {% else %} value="False" {% endif %}>
+
+                                                <input type="hidden" name="component[]" value="{{ i.component }}">
+
+                                                <strong style="color: #17A2B8;">{{ i.component | title | cut:'_' }}</strong>
+                                            </td>
+                                            
+                                            <td>
+                                                <input type="checkbox" class="view" 
+                                                {% if i.view_action == True %} checked {% endif %} 
+                                                value="True">
+
+                                                <input type="hidden" name="view[]" value="{{ i.view_action }}">
+                                            </td>
+
+                                            <td>
+                                                <input type="checkbox" class="edit" 
+                                                {% if i.edit_action == True %} checked {% endif %} 
+                                                value="True">
+
+                                                <input type="hidden" name="edit[]" value="{{ i.edit_action }}">
+                                            </td>
+
+                                            <td>
+                                                <input type="checkbox" class="delete" 
+                                                {% if i.delete_action == True %} checked {% endif %} 
+                                                value="True">
+
+                                                <input type="hidden" name="delete[]" value="{{ i.delete_action }}">
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                                <div class="card-footer">
+                                    <input type="submit" name="set_privilege" value="Set Privilege" class="btn btn-info float-right">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Control sidebar content goes here -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- /.control-sidebar -->
+    </aside>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "backend_includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->
+
+<script>
+    /*$(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+            "paging"       : true,
+            "lengthChange" : false,
+            "searching"    : false,
+            "ordering"     : true,
+            "info"         : true,
+            "autoWidth"    : false,
+        });
+    });*/
+
+
+
+    $(document).on('click', '.component', function(e){
+
+        var elementVal = this.nextElementSibling;
+
+        if(this.checked){
+            elementVal.value = this.value;
+        }else{
+            elementVal.value = 'False';
+        }
+        console.log(elementVal.value);
+    });
+
+    $(document).on('click', '.view', function(e){
+
+        var viewVal = this.nextElementSibling;
+
+        if(this.checked){
+            viewVal.value = this.value;
+        }else{
+            viewVal.value = 'False';
+        }
+        console.log(viewVal.value);
+    });
+
+    $(document).on('click', '.edit', function(e){
+
+        var editVal = this.nextElementSibling;
+
+        if(this.checked){
+            editVal.value = this.value;
+        }else{
+            editVal.value = 'False';
+        }
+        console.log(editVal.value);
+    });
+
+    $(document).on('click', '.delete', function(e){
+
+        var deleteVal = this.nextElementSibling;
+
+        if(this.checked){
+            deleteVal.value = this.value;
+        }else{
+            deleteVal.value = 'False';
+        }
+        console.log(deleteVal.value);
+    });
+
+</script>

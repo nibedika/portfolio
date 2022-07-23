@@ -1,0 +1,575 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "frontend_includes/front_header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "frontend_includes/front_home_slider.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "frontend_includes/front_menubar.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about-mf sect-pt4 route">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="box-shadow-full">
+                            <div class="my-auto">
+                                <h1 class="mb-0">{{ businessData.name }}
+                                    <span class="text-primary"></span>
+                                </h1>
+
+                                <div class="subheading mb-5">
+                                    <a href="mailto:name@email.com">{{ businessData.designation }}</a>
+                                </div>
+
+                                <p class="mb-5" style="margin-bottom: 2rem !important;">{{ websiteData.slider_txt1 }}</p>
+                                <p class="mb-5" style="margin-bottom: 2rem !important;">{{ websiteData.slider_txt2 }}</p>
+                                <p class="mb-5" style="margin-bottom: 2rem !important;">{{ websiteData.slider_txt3 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End About Section -->
+
+
+
+        <div class="container-fluid">
+            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+                <div class="my-auto">
+                    <h2 class="mb-5">Experience</h2>
+
+                    {% for e in experienceData %}
+                    <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                        <div class="resume-content mr-auto">
+                            <h3 class="mb-0">{{ e.resume_title }}</h3>
+                            <div class="subheading mb-3"><a href="{{ e.url }}">{{ e.institute }}</a></div>
+                            <p>{{ e.resume_txt }}</p>
+                        </div>
+
+                        <div class="resume-date text-md-right">
+                            <span class="text-primary">{{ e.duration }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+
+
+            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
+                <div class="my-auto">
+                    <h2 class="mb-5">Education</h2>
+
+                    {% for e in educationData %}
+                    <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                        <div class="resume-content mr-auto">
+                            <h3 class="mb-0">{{ e.institute }}</h3>
+                            <div class="subheading mb-3">{{ e.resume_title }}</div>
+                            <!-- <div>Computer Science - Web Development Track</div> -->
+                            <!--<p>{{ e.resume_txt }}</p>-->
+                        </div>
+
+                        <div class="resume-date text-md-right">
+                            <span class="text-primary">{{ e.duration }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+
+
+            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+                <div class="my-auto">
+                    <h2 class="mb-5">Skills</h2>
+
+                    <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+                    <ul class="list-inline list-icons" style="margin-bottom: 0.5rem !important;">
+                        <li class="list-inline-item" title="django">
+                            <i class="devicons devicons-django"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="python">
+                            <i class="devicons devicons-python"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="codeigniter">
+                            <i class="devicons devicons-codeigniter"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="php">
+                            <i class="devicons devicons-php"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="angularJS">
+                            <i class="devicons devicons-angular"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="jquery">
+                            <i class="devicons devicons-jquery"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="javascript">
+                            <i class="devicons devicons-javascript"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="mongodb">
+                            <i class="devicons devicons-mongodb"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="mysql">
+                            <i class="devicons devicons-mysql"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="docker">
+                            <i class="devicons devicons-docker"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="redis">
+                            <i class="devicons devicons-redis"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="html5">
+                            <i class="devicons devicons-html5"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="css3">
+                            <i class="devicons devicons-css3"></i>
+                        </li>
+
+                        <li class="list-inline-item" title="bootstrap">
+                            <i class="devicons devicons-bootstrap"></i>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <i class="devicons devicons-git"></i>
+                        </li>
+                    </ul>
+
+                    <div class="subheading mb-3">Workflow</div>
+                    <ul class="fa-ul mb-0" style="margin-bottom: 1rem !important;">
+                        <li>
+                            <i class="fa-li fa fa-check"></i>
+                            <strong>Server Site Programming : </strong>Python Framework (Django), PHP Framework (CodeIgnitor)
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-check"></i>
+                            <strong>Client Site Programming : </strong>Javascript (Raw, jQuery, AngularJS),
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-check"></i>
+                            <strong>Database Management : </strong>noSQL (MongoDB), mySQL
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-check"></i>
+                            <strong>Basic Web Developing tools : </strong>HTML5, CSS3 and so on
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-check"></i>
+                            <strong>Computer Basic : </strong>Microsoft Word, Micosoft powerpoint, Microsoft Excel, Git and so on.
+                        </li>
+                    </ul>
+
+                    <div class="subheading mb-3">Linguistic Skills</div>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <i class="fa-li fa fa-check"></i>
+                            <strong>English : </strong>Full Professional Proficiency
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-check"></i>
+                            <strong>Bangla : </strong>Native / Mother Tongue 
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+
+
+            <!-- ======= Services Section ======= -->
+            <section id="services" class="services-mf pt-5 route">
+                <div class="container">
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <div class="title-box text-center">
+                              <h3 class="title-a">Services</h3>
+
+                              <!-- <p class="subtitle-a">
+                                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                              </p> -->
+
+                              <div class="line-mf"></div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      {% for s in serviceData %}
+                      <div class="col-md-4">
+                          <div class="service-box">
+                              <div class="service-ico">
+                                  <span class="ico-circle"><i class="ion-monitor"></i></span>
+                              </div>
+
+                              <div class="service-content">
+                                  <h2 class="s-title">{{ s.service_title }}</h2>
+                                  <p class="s-description text-center">{{ s.service_txt }}</p>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+                </div>
+            </section>
+            <!-- End Services Section -->
+
+
+
+            <!-- ======= Portfolio Section ======= -->
+            <section id="projects" class="portfolio-mf sect-pt4 route">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="title-box text-center">
+                                <h3 class="title-a">Portfolio</h3>
+
+                                <!-- <p class="subtitle-a">Lorem ipsum, dolor.</p> -->
+
+                                <div class="line-mf"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        {% for p in portfolioData %}
+                        <div class="col-md-4">
+                            <div class="work-box">
+                                <a href="/media/user/portfolio_img/{{ p.portfolio_img }}" data-gall="portfolioGallery" class="venobox">
+                                    <div class="work-img">
+                                        <img style="height: 200px; width: 100%;" src="/media/user/portfolio_img/{{ p.portfolio_img }}" alt="" class="img-fluid">
+                                    </div>
+                                </a>
+
+                                <div class="work-content">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h2 class="w-title">{{ p.portfolio_title }}</h2>
+
+                                            <div class="w-more">
+                                                <span class="w-ctegory">{{ p.portfolio_topic }}</span> / <span class="w-date">{{ p.date | date:'Y-m-d' }}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <div class="w-like">
+                                                <a href="{% url 'portfolio_detail' p.id %}"> <span class="ion-ios-plus-outline"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section><!-- End Portfolio Section -->
+
+
+
+            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
+                <div class="my-auto">
+                    <h2 class="mb-5">Awards &amp; Certifications</h2>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            11/03/2010 | Junior School Certificate (JSC) Scholarship, Bangladesh
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2009 | 3<sup>rd</sup>
+                            National Junior Islamic Cultural Competition | Instant Speech | Zila Level
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2009 | 2<sup>nd</sup>
+                            National Junior Islamic Cultural Competition | Instant Speech | Upazila Leve
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2009 | 2<sup>nd</sup>
+                            National Junior Islamic Cultural Competition | Essay Writing | Upazila Level
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2009 | 1<sup>st</sup>
+                            National Children's Award Competition | Nazrul Sangeet | Upazila Level
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2008 | 1<sup>st</sup>
+                            National Children's Award Competition | Nazrul Sangeet | Upazila Level
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2008 | 2<sup>nd</sup>
+                            National Children's Award Competition | Rabindra Sangeet | Upazila Level
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2008 | 2<sup>nd</sup>
+                            National Children's Award Competition | Patriotic Songs | Upazila Level 
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2007 | 3<sup>rd</sup>
+                            National Children's Award Competition | Rabindra Sangeet | Zila Level
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2007 | 1<sup>st</sup>
+                            National Children's Award Competition | Rabindra Sangeet | Upazila Level
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2007 | 2<sup>nd</sup>
+                            National Children's Award Competition | Rhyme Song | Upazila Level
+                        </li>
+
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            01/01/2007 | 3<sup>rd</sup>
+                            Primary School Certificate (PSC) Scholarship, Bangladesh
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+
+
+            <!--<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="recommendations">
+                <div class="my-auto">
+                    <h2 class="mb-5">Recommendations</h2>
+
+                    <p class="mb-0">
+                        <strong>Name: Shah Mustofa Noor</strong> <br>
+                        Principal | College of Business Science & Technology <br>
+                        Phone number: (+880) 1713368283, Email: noor@cbst.edu.bd <br>
+                    </p> <br>
+
+                    <p class="mb-0">
+                        <strong>Name: Engr. Arifa Sultana (Nila)</strong> <br>
+                        Sr. Lecturer & Coordinator | Dept. of Computer Science & Engineering | College of Business Science & Technology <br>
+                        Examiner, National University <br>
+                        Phone number: (+880) 1714240280, Email: engr.arifasultana@gmail.com <br>
+                    </p> <br>
+
+                    <p class="mb-0">
+                        <strong>Name: Muhammad Imran Ali </strong> <br>
+                        Lecturer | Dept. of Computer Science & Engineering | College of Business Science & Technology <br>
+                        Examiner, National University <br>
+                        Phone number: (+880) 1712485957, Email: imranbd.cse@gmail.com <br>
+                    </p>
+                </div>
+            </section>-->
+
+            
+
+            <!-- ======= Blog Section ======= -->
+            <section id="blog" class="blog-mf sect-pt4 route">
+                <div class="container">
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <div class="title-box text-center">
+                              <h3 class="title-a">Blog</h3>
+
+                              <!-- <p class="subtitle-a">Lorem ipsum, dolor sit amet.</p> -->
+
+                              <div class="line-mf"></div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      {% for b in blogData %}
+                      <div class="col-md-4">
+                          <div class="card card-blog">
+                              <div class="card-img">
+                                  <a href="blog-single.html"><img style="height: 200px; width: 100%;" src="/media/user/blog_img/{{ b.blog_img }}" alt="" class="img-fluid"></a>
+                              </div>
+
+                              <div class="card-body">
+                                  <!-- <div class="card-category-box">
+                                      <div class="card-category">
+                                          <h6 class="category">Travel</h6>
+                                      </div>
+                                  </div> -->
+
+                                  <h3 class="card-title">
+                                      <a href="{% url 'blog_detail' b.id %}">{{ b.blog_title }}</a>
+                                  </h3>
+                                  
+                                  <!-- <p class="card-description">
+                                      Proin eget tortor risus.
+                                  </p> -->
+
+                                  <div class="post-date">
+                                      <span class="ion-ios-clock-outline"></span> {{ b.date }}
+                                  </div>
+                              </div>
+
+                              <div class="card-footer">
+                                  <div class="post-author">
+                                      <a href="#">
+                                          <img src="/media/account-img/profile-img/{{ b.publisher.profile_img }}" alt="" class="avatar rounded-circle">
+                                          <span class="author">{{ b.publisher.name }}</span>
+                                      </a>
+                                  </div>
+
+                                  <!-- <div class="post-date">
+                                      <span class="ion-ios-clock-outline"></span> 10 min
+                                  </div> -->
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+                </div>
+            </section>
+            <!-- End Blog Section -->
+        </div>
+
+
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(/media/account-img/website/slider-img3/{{ websiteData.slider_img3 }})">
+            <div class="overlay-mf"></div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                      <div class="contact-mf">
+                          <div id="contact" class="box-shadow-full">
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="title-box-2">
+                                          <h5 class="title-left">Send Message Us</h5>
+                                      </div>
+
+                                      <div>
+                                          <form action="{% url 'user_contact_add' businessData.user_id ' ' %}" method="POST" role="form" class="php-email-form">
+                                          {% csrf_token %}
+                                              <div class="row">
+                                                  <div class="col-md-6 mb-3">
+                                                      <div class="form-group">
+                                                          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                                          <div class="validate"></div>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="col-md-6 mb-3">
+                                                      <div class="form-group">
+                                                          <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                                          <div class="validate"></div>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="col-md-12 mb-3">
+                                                      <div class="form-group">
+                                                          <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                                          <div class="validate"></div>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="col-md-12">
+                                                      <div class="form-group">
+                                                          <textarea name="text" class="form-control" rows="3" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                                          <div class="validate"></div>
+                                                      </div>
+                                                  </div>
+
+                                                  <!-- <div class="col-md-12 text-center mb-3">
+                                                      <div class="loading">Loading</div>
+                                                      <div class="error-message"></div>
+                                                      <div class="sent-message">Your message has been sent. Thank you!</div>
+                                                  </div> -->
+
+                                                  <div class="col-md-12 text-center">
+                                                      <input name="user_contact_add" type="submit" value="Send Message" class="button button-a button-rouded">
+                                                  </div>
+                                              </div>
+                                          </form>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <div class="title-box-2 pt-4 pt-md-0">
+                                          <h5 class="title-left">Get in Touch</h5>
+                                      </div>
+
+                                      <div class="more-info">
+                                          <p class="lead">
+                                              <b>{{ businessData.name }}</b><br>
+                                              
+                                              <small>{{ businessData.intro }}</small>
+                                          </p>
+
+                                          <ul class="list-ico">
+                                              <li><span class="ion-ios-location"></span> {{ businessData.address }}</li>
+                                              <li><span class="ion-ios-telephone"></span> {{ businessData.contact_no }}</li>
+                                              <li><span class="ion-email"></span> {{ businessData.email }}</li>
+                                          </ul>
+                                      </div>
+
+                                      <div class="socials">
+                                          <ul>
+                                              <li><a href="{{ businessData.facebook_link }}"><span class="ico-circle"><i class="ion-social-facebook"></i></span></a></li>
+                                              <li><a href="{{ businessData.linkedin_link }}"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a></li>
+                                              <li><a href="{{ businessData.youtube_link }}"><span class="ico-circle"><i class="ion-social-youtube"></i></span></a></li>
+                                              <li><a href="{{ businessData.twitter_link }}"><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
+                                              <li><a href="{{ businessData.pinterest_link }}"><span class="ico-circle"><i class="ion-social-pinterest"></i></span></a></li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Contact Section -->
+
+    </main><!-- End #main -->
+
+
+{% endblock content %}
+
+<!-- ========= START OF FOOTER SECTION ======== -->
+{% include "frontend_includes/front_footer.html" %}
+<!-- ========= END OF FOOTER SECTION ========== -->

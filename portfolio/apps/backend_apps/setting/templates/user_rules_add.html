@@ -1,0 +1,80 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "backend_includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "backend_includes/menubar.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "backend_includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="content-wrapper">
+        <div class="col-md-12">&nbsp;</div>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="col-md-9">
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Add New Rule (For User)</h3>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="set-{{confirm.2}}">
+                                {% if confirm.2 %}<b class="btn-cross">×</b>{% endif %}
+                                <h4>{{confirm.0}}</h4>
+                                <div class="set-{{confirm.2}}">
+                                    {% if confirm.2 %}<h6>{{confirm.1}}</h6>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Terms</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" name="terms" rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Conditions</label>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" name="conditions" rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Authorised By</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="authorised_by" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <input type="submit" name="user_rules_add" value="Save" class="btn btn-info">
+                                <button type="reset" class="btn btn-default float-right">Discard</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Control sidebar content goes here -->
+    <aside class="control-sidebar control-sidebar-dark">
+    <!-- control-sidebar -->
+    </aside>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "backend_includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->

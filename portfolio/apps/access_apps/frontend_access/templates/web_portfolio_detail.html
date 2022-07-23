@@ -1,0 +1,46 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "frontend_includes/front_header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+
+    {% load static %}
+    {% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "frontend_includes/front_menubar.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+        <!-- ======= Portfolio Details Section ======= -->
+        <main id="main">
+            <section class="portfolio-details">
+                <div class="container">
+
+                    <div class="portfolio-details-container">
+                        <div class="owl-carousel portfolio-details-carousel">
+                            <img src="/media/user/portfolio_img/{{ portfolioData.portfolio_img }}" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="portfolio-info">
+                            <h3>Project information</h3>
+                            <ul>
+                                <li><strong>Category</strong>: {{ portfolioData.portfolio_topic }}</li>
+                                <!-- <li><strong>Client</strong>: ASU Company</li> -->
+                                <li><strong>Project date</strong>: {{ portfolioData.date }}</li>
+                                <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-description">
+                          <h2>{{ portfolioData.portfolio_title }}</h2>
+                          <p>{{ portfolioData.portfolio_txt }}</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- End #main -->
+
+    {% endblock content %}
+
+<!-- ========= START OF FOOTER SECTION ======== -->
+{% include "frontend_includes/front_footer.html" %}
+<!-- ========= END OF FOOTER SECTION ========== -->

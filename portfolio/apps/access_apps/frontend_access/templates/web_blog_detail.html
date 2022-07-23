@@ -1,0 +1,63 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "frontend_includes/front_header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+
+    {% load static %}
+    {% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "frontend_includes/front_menubar.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+        <!-- ======= Blog Single Section ======= -->
+        <main id="main">
+            <section class="blog-wrapper sect-pt4" id="blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="post-box">
+                                <div class="post-thumb">
+                                    <img style="width: 100%;" src="/media/user/blog_img/{{ blogData.blog_img }}" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="post-meta">
+                                    <h1 class="article-title">{{ blogData.blog_title }}</h1>
+                                    <ul>
+                                        <li>
+                                            <span class="ion-ios-person"></span>
+                                            <a href="#">{{ blogData.publisher.name }}</a>
+                                        </li>
+
+                                        <li>
+                                            <span class="ion-ios-clock-outline"></span>
+                                            <a href="#">{{ blogData.date }}</a>
+                                        </li>
+
+                                        <!-- <li>
+                                            <span class="ion-pricetag"></span>
+                                            <a href="#">Web Design</a>
+                                        </li> -->
+
+                                        <!-- <li>
+                                            <span class="ion-chatbox"></span>
+                                            <a href="#">14</a>
+                                        </li> -->
+                                    </ul>
+                                </div>
+
+                                <div class="article-content">
+                                    <p>{{ blogData.blog_txt }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- End #main -->
+
+    {% endblock content %}
+
+<!-- ========= START OF FOOTER SECTION ======== -->
+{% include "frontend_includes/front_footer.html" %}
+<!-- ========= END OF FOOTER SECTION ========== -->

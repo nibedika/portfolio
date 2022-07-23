@@ -1,0 +1,1039 @@
+{% load static %}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    
+    <!-- <a href="{% url 'home' %}" class="brand-link">
+        <img src="{% static 'img/favicon/ND-icon.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">E-Commerce Owner </span>
+    </a> -->
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <a href="{% url 'account_setting' %}">
+                <div class="image">
+                    <img style="margin-top: -25px;" src="/media/account-img/profile-img/{{ menuData.profile_img }}" class="img-circle elevation-2" alt="">
+                </div>
+
+                <div class="info">
+                    <span class="d-block" style="color: #eee;">{{ menuData.name | title }} &nbsp;<i class="fa fa-cog fa-spin"></i></span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                
+                <li class="nav-item has-treeview menu-open">
+                    <a href="{% url 'home' %}" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+
+
+                {% if menuData.account_type == 'account' %}
+                <li class="nav-item has-treeview {% if activeAside == 'appointment' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-bookmark"></i>
+                        <p>
+                            Appointment
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'appointment_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'appointment_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'metting' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-bookmark"></i>
+                        <p>
+                            Metting
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'metting_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'metting_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'note' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>
+                            Note
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'note_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'note_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'familiar' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>
+                            Familiar
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'familiar_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'familiar_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'team' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Team
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'member_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Member</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'member_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Members</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'team_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Team</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'team_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Teams</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'additional_income' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-search-dollar"></i>
+                        <p>
+                            Additional Income
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'additional_income_field_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Income Field</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'additional_income_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'additional_income_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'additional_cost' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-search-dollar"></i>
+                        <p>
+                            Additional Cost
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'additional_cost_field_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cost Field</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'additional_cost_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'additional_cost_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'email_marketing' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        <p>
+                            Email Marketing
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'email_list' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Email List</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'marketing_email_send' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Email Send</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'marketing_email_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Emails</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'sms_marketing' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-mobile-alt"></i>
+                        <p>
+                            SMS Marketing
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'contact_list' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Contact List</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'marketing_sms_send' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>SMS Send</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'marketing_sms_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All SMSs</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'message' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-comment-alt"></i>
+                        <p>
+                            Message <small style="color: #238DFF;"><b>( {{ navMsgData.count }} )</b></small>
+                            <i class="fas fa-angle-left right" style="right: 1rem;"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'message_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'message_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'setting' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fab fa-whmcs"></i>
+                        <p>
+                            Setting
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'rules_setting' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Rules</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'website_setting' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Website</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'privilege' %}menu-open{% endif %}">
+                    <a href="{% url 'privilege_all' %}" class="nav-link">
+                        <i class="nav-icon fas fa-align-center"></i>
+                        <p>
+                            Privilege
+                        </p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'all_account' %}menu-open{% endif %}">
+                    <a href="{% url 'all_account' %}" class="nav-link">
+                        <i class="nav-icon fas fa-users-cog"></i>
+                        <p>
+                            Account Action
+                        </p>
+                    </a>
+                </li>
+
+
+                <h6 style="display: block; border-bottom: .1px solid #555; margin: 15px 0px;"></h6>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'resume' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-graduate"></i>
+                        <p>
+                            Resume
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'resume_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'resume_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'portfolio' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-suitcase"></i>
+                        <p>
+                            Portfolio
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'portfolio_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'portfolio_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'service' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-scroll"></i>
+                        <p>
+                            Service
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'service_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'service_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview {% if activeAside == 'blog' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fab fa-blogger"></i>
+                        <p>
+                            Blog
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'blog_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'blog_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                
+
+
+                {% if menuData.account_type == 'admin' %}
+
+                {% for p in privilegeData %}
+                {% if p.component == 'appointment' %}
+                <li class="nav-item has-treeview {% if activeAside == 'appointment' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-bookmark"></i>
+                        <p>
+                            Appointment
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'appointment_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'appointment_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'metting' %}
+                <li class="nav-item has-treeview {% if activeAside == 'metting' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-bookmark"></i>
+                        <p>
+                            Metting
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'metting_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'metting_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'note' %}
+                <li class="nav-item has-treeview {% if activeAside == 'note' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>
+                            Note
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'note_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'note_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'familiar' %}
+                <li class="nav-item has-treeview {% if activeAside == 'familiar' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>
+                            Familiar
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'familiar_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'familiar_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'team' %}
+                <li class="nav-item has-treeview {% if activeAside == 'team' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Team
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'member_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Member</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'member_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Members</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'team_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Team</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'team_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Teams</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'additional_income' %}
+                <li class="nav-item has-treeview {% if activeAside == 'additional_income' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-search-dollar"></i>
+                        <p>
+                            Additional Income
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'additional_income_field_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cost Field</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'additional_income_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'additional_income_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'additional_cost' %}
+                <li class="nav-item has-treeview {% if activeAside == 'additional_cost' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-search-dollar"></i>
+                        <p>
+                            Additional Cost
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'additional_cost_field_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cost Field</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'additional_cost_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'additional_cost_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'email_marketing' %}
+                <li class="nav-item has-treeview {% if activeAside == 'email_marketing' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        <p>
+                            Email Marketing
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'email_list' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Email List</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'marketing_email_send' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Email Send</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'marketing_email_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Emails</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'sms_marketing' %}
+                <li class="nav-item has-treeview {% if activeAside == 'sms_marketing' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-mobile-alt"></i>
+                        <p>
+                            SMS Marketing
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'contact_list' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Contact List</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'marketing_sms_send' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>SMS Send</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'marketing_sms_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All SMSs</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'message' %}
+                <li class="nav-item has-treeview {% if activeAside == 'message' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-comment-alt"></i>
+                        <p>
+                            Message <small style="color: #238DFF;"><b>( {{ navMsgData.count }} )</b></small>
+                            <i class="fas fa-angle-left right" style="right: 1rem;"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'message_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'message_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'setting' %}
+                <li class="nav-item has-treeview {% if activeAside == 'setting' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fab fa-whmcs"></i>
+                        <p>
+                            Setting
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'rules_setting' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Rules</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'website_setting' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Website</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'privilege' %}
+                <li class="nav-item fas fa-align-center {% if activeAside == 'privilege' %}menu-open{% endif %}">
+                    <a href="{% url 'privilege_all' %}" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Privilege
+                        </p>
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                <h6 style="display: block; border-bottom: .1px solid #555; margin: 15px 0px;"></h6>
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'resume' %}
+                <li class="nav-item has-treeview {% if activeAside == 'resume' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-graduate"></i>
+                        <p>
+                            Resume
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'resume_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'resume_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'portfolio' %}
+                <li class="nav-item has-treeview {% if activeAside == 'portfolio' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-suitcase"></i>
+                        <p>
+                            Portfolio
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'portfolio_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'portfolio_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'service' %}
+                <li class="nav-item has-treeview {% if activeAside == 'service' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-scroll"></i>
+                        <p>
+                            Service
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'service_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'service_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+
+                {% for p in privilegeData %}
+                {% if p.component == 'blog' %}
+                <li class="nav-item has-treeview {% if activeAside == 'blog' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fab fa-blogger"></i>
+                        <p>
+                            Blog
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'blog_add' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'blog_all' ' ' %}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</aside>
